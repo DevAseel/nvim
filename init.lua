@@ -1,19 +1,21 @@
-require("ven.plugins-setup")
-require("ven.core.options")
-require("ven.core.keymaps")
-require("ven.core.colorscheme")
-require("ven.plugins.comment")
-require("ven.plugins.nvim-tree")
-require("ven.plugins.lualine")
-require("ven.plugins.telescope")
-require("ven.plugins.nvim-cmp")
-require("ven.plugins.lsp.mason")
-require("ven.plugins.lsp.lspsaga")
-require("ven.plugins.lsp.lspconfig")
-require("ven.plugins.lsp.null-ls")
-require("ven.plugins.autopairs")
-require("ven.plugins.treesitter")
-require("ven.plugins.gitsigns")
-require("ven.plugins.harpoon")
--- to make remove bg from nvim (transparent using iterm2)
-vim.cmd("hi Normal guibg=000000")
+require "core"
+
+local custom_init_path = vim.api.nvim_get_runtime_file("lua/custom/init.lua", false)[1]
+
+if custom_init_path then
+  dofile(custom_init_path)
+end
+
+require("core.utils").load_mappings()
+
+local lazypath = vim.fn.stdpath "data" .. "/lazy/lazy.nvim"
+
+-- bootstrap lazy.nvim!
+if not vim.loop.fs_stat(lazypath) then
+  require("core.bootstrap").gen_chadrc_template()
+  require("core.bootstrap").lazy(lazypath)
+end
+
+dofile(vim.g.base46_cache .. "defaults")
+vim.opt.rtp:prepend(lazypath)
+require "plugins"
