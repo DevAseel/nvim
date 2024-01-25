@@ -141,6 +141,9 @@ require("lazy").setup({
     {
         'voldikss/vim-floaterm',
     },
+    {
+        'dstein64/vim-startuptime',
+    },
         
 })
 
