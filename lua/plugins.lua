@@ -16,9 +16,9 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
     {
-        "rebelot/kanagawa.nvim",
+        "catppuccin/nvim",
         config = function()
-            vim.cmd.colorscheme("kanagawa-wave")
+            vim.cmd.colorscheme("catppuccin")
         end,
     },
     {
@@ -143,6 +143,23 @@ require("lazy").setup({
     },
     {
         'dstein64/vim-startuptime',
+    },
+    {
+        'jose-elias-alvarez/null-ls.nvim',
+        ft = { 'python', 'go'},
+        opts = function()
+            return require "custom.configs.null-ls"
+        end,
+    },
+    {
+        "olexsmir/gopher.nvim",
+        ft = "go",
+        config = function(_, opts)
+            require("gopher").setup(opts)
+        end,
+        build = function()
+            vim.cmd [[silent! GoInstallDeps]]
+        end,
     },
         
 })

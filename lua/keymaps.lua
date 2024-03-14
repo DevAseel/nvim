@@ -70,3 +70,7 @@ vim.keymap.set("n", "<leader>tf", "<cmd>tabnew %<CR>", { desc = "Open current bu
 
 -- floaterm managment 
 vim.keymap.set("n", "<leader>it", "<cmd>FloatermToggle<CR>")
+
+-- golang mappings
+vim.keymap.set("n", "<leader>gsj", "<cmd> GoTagAdd json <CR>")
+vim.keymap.set("n", "<leader>gsy", "<cmd> GoTagAdd yaml <CR>")

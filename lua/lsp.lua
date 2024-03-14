@@ -12,6 +12,7 @@ require('mason-lspconfig').setup({
   ensure_installed = {
     'tsserver',
     'eslint',
+    'gopls',
   },
   handlers = {
     lsp_zero.default_setup,
