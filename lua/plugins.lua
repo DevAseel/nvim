@@ -25,9 +25,12 @@ require("lazy").setup({
         "nvim-treesitter/nvim-treesitter",
         config = function()
             require("nvim-treesitter.configs").setup({
-                ensure_installed = { "c", "lua", "vim", "vimdoc", "query", "javascript", "typescript", "python" },
+                ensure_installed = { "c", "lua", "vim", "vimdoc", "query", "javascript", "typescript", "python", "go"},
                 auto_install = true,
                 highlight = {
+                    enable = true,
+                },
+                autotag = {
                     enable = true,
                 },
                 incremental_selection = {
@@ -161,7 +164,18 @@ require("lazy").setup({
             vim.cmd [[silent! GoInstallDeps]]
         end,
     },
-        
+    {
+        'windwp/nvim-ts-autotag',
+    },
+    {
+        'windwp/nvim-autopairs',
+        config = true -- shorthand
+    },
+    { 
+        "lukas-reineke/indent-blankline.nvim",
+        main = "ibl",
+        opts = {} 
+    },        
 })
 
 
