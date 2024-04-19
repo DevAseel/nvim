@@ -1,6 +1,10 @@
 -- General keymaps
 vim.g.mapleader = " "
 vim.keymap.set("i", "jk", "<ESC>")
+vim.keymap.set("n", "J", "j")
+vim.keymap.set("n", "H", "h")
+vim.keymap.set("n", "K", "k")
+vim.keymap.set("n", "L", "l")
 
 -- files keymaps
 vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
@@ -20,3 +24,5 @@ vim.keymap.set("n", "<leader>tx", "<cmd>tabclose<CR>", { desc = "Close current t
 vim.keymap.set("n", "<leader>tn", "<cmd>tabn<CR>", { desc = "Go to next tab" })                     --  go to next tab
 vim.keymap.set("n", "<leader>tp", "<cmd>tabp<CR>", { desc = "Go to previous tab" })                 --  go to previous tab
 vim.keymap.set("n", "<leader>tf", "<cmd>tabnew %<CR>", { desc = "Open current buffer in new tab" }) --  move current buffer to new tab
+
+vim.keymap.set("n", "<C-z>", "<Nop>", { noremap = true, silent = true })                            -- remove ctrl z
